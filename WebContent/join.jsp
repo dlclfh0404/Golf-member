@@ -13,22 +13,22 @@
 	function fn_submit(){
 		var fn = document.data;
 		
-		if(fn.regist_month.value === ""){
+		if(!fn.resist_month.value){
 			alert("수강월을 입력해주세요!");
-			fn.regist_month.focus();
+			fn.resist_month.focus();
 			return false;
 		}
-		if(fn.c_no.value === ""){
+		if(!fn.c_no.value){
 			alert("회원명을 선택해주세요!");
 			fn.c_name.focus();
 			return false;
 		}
-		if(fn.class_area.value === ""){
-			alert("강의장소를 선택해주세요!");
+		if(!fn.class_area.value){
+			alert("강의장소를 입력해주세요!");
 			fn.class_area.focus();
 			return false;
 		}
-		if(fn.tuition.value === ""){
+		if(!fn.tuition.value){
 			alert("강의명을 선택해주세요!");
 			fn.teacher_code.focus();
 			return false;
@@ -80,12 +80,12 @@
 	
 	<main id="section">
 		<h3 class="title">수강신청</h3>
-			<form name="data" method="post" action="join_p.jsp" >
+			<form name="data" method="post" action="join_p.jsp" onsubmit="return fn_submit()">
 				<table class="table_line">
 					<tr>
 						<th>수강월</th>
 						<td>
-							<input type="text" name="resist_month" maxlength="6">2022년03월 예)202203</td>
+							<input type="text" name="resist_month" maxlength="6" autofocus>2022년03월 예)202203</td>
 					</tr>
 					<tr>
 						<th>회원명</th>
@@ -106,16 +106,7 @@
 					</tr>
 					<tr>
 						<th>강의장소</th>
-						<td>
-							<select name="class_area">
-								<option value="">강의장소</option>
-								<option value="서울본원">서울본원</option>
-								<option value="성남분원">성남분원</option>
-								<option value="대전분원">대전분원</option>
-								<option value="부산분원">부산분원</option>
-								<option value="대구분원">대구분원</option>
-							</select>
-						</td>
+						<td><input type="text" name="class_area"></td>
 					</tr>
 					<tr>
 						<th>강의명</th>
